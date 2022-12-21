@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  mongodb:
+    image: mongo
+    restart: always
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root # username can be changed as needed
+      - MONGO_INITDB_ROOT_PASSWORD=root # password can be changed as needed
+    volumes:
+      - ./data:/data/db
+    networks:
+      - mongodb
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 5s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+networks:
+  mongodb:
+    driver: bridge
