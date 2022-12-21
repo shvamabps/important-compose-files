@@ -1,15 +1,15 @@
 version: "3.9"
 services:
-  db:
+  postgres:
     image: postgres
     restart: always
     container_name: postgres
     user: postgres
     volumes:
-      - ./db-data:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=example
-      - POSTGRES_PASSWORD=<passsword> # ${POSTGRES_PASSWORD} # here this password can be set using the environment variable
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD} # here this password can be set using the environment variable
     ports:
       - 5432:5432
     healthcheck:
@@ -17,3 +17,15 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=${PGADMIN_MAIL}
+      - PGADMIN_DEFAULT_PASSWORD=${PGADMIN_PW}
+    ports:
+      - "5050:80"
+    restart: always
+
+volumes: pg_data

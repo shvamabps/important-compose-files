@@ -10,4 +10,8 @@ services:
     container_name: jenkins
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ./jenkins_data:/var/jenkins_home
+      - jenkins_data:/var/jenkins_home
+    restart: always
+
+volumes:
+  jenkins_data:

@@ -7,10 +7,10 @@ services:
     ports:
       - 27017:27017
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=root # ${MONGO_INITDB_ROOT_USERNAME} # here this user can be set using the environment variable
-      - MONGO_INITDB_ROOT_PASSWORD=root # ${MONGO_INITDB_ROOT_PASSWORD} # here this password can be set using the environment variable
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME} # here this user can be set using the environment variable
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD} # here this password can be set using the environment variable
     volumes:
-      - ./data:/data/db
+      - mongo_data:/data/db
     networks:
       - mongodb
     healthcheck:
@@ -22,3 +22,5 @@ services:
 networks:
   mongodb:
     driver: bridge
+volumes:
+  mongo_data:
