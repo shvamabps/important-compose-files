@@ -9,7 +9,7 @@ services:
       - ./db-data:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=example
-      - POSTGRES_PASSWORD=<passsword>
+      - POSTGRES_PASSWORD=<passsword> # ${POSTGRES_PASSWORD} # here this password can be set using the environment variable
     ports:
       - 5432:5432
     healthcheck:

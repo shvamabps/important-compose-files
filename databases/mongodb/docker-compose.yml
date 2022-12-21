@@ -7,8 +7,8 @@ services:
     ports:
       - 27017:27017
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=root # username can be changed as needed
-      - MONGO_INITDB_ROOT_PASSWORD=root # password can be changed as needed
+      - MONGO_INITDB_ROOT_USERNAME=root # ${MONGO_INITDB_ROOT_USERNAME} # here this user can be set using the environment variable
+      - MONGO_INITDB_ROOT_PASSWORD=root # ${MONGO_INITDB_ROOT_PASSWORD} # here this password can be set using the environment variable
     volumes:
       - ./data:/data/db
     networks:
