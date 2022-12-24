@@ -5,7 +5,7 @@
 - Example command:
 
 ```
-docker run -it -d -v $PWD:/app -p 8000:8000 --name test  shvamabps/django-starter
+docker run -it -d -v $PWD:/app -p 8000:8000 --name test  shvamabps/django
 ```
 
 - If an app is created inside the container it is editable outside the container too.
