@@ -1,5 +1,9 @@
 FROM python
 
+ENV PYTHONDONTWRITEBYTECODE 1 # Prevent writing .pyc files
+
+ENV PYTHONUNBUFFERED 1 # Prevent buffering
+
 WORKDIR /app 
 
 COPY . /app
