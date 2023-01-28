@@ -21,3 +21,7 @@ services:
       start_period: 5s
 volumes:
   mongo_data:
+networks:
+  mongodb: 
+    driver: "bridge" 
+
