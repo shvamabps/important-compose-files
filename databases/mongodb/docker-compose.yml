@@ -7,8 +7,8 @@ services:
     ports:
       - 27017:27017
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME} # here this user can be set using the environment variable
-      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD} # here this password can be set using the environment variable
+      - MONGO_INITDB_ROOT_USERNAME=example # here this user can be set using the environment variable
+      - MONGO_INITDB_ROOT_PASSWORD=example # here this password can be set using the environment variable
     volumes:
       - mongo_data:/data/db
     networks:
